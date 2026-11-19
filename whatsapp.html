@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abrindo o WhatsApp... | Studio Flávia Luque</title>
+<meta name="description" content="Redirecionando para o WhatsApp do Studio Flávia Luque.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48.png">
+<style>
+  html,body{margin:0;height:100%;background:#FFFFFF;}
+  body{display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#3A2418;}
+  h1{margin:0;font-size:18px;font-weight:400;}
+  a{color:#8B5236;}
+</style>
+<script>
+  (function () {
+    var WA_NUMBER = '5519989077669';
+    // Mensagens por botão (só chaves conhecidas: evita redirect aberto)
+    var MESSAGES = {
+      header: 'Olá! Vim da página do Studio Flávia Luque e quero mais informações.',
+      hero:   'Olá! Vim da página do Studio e quero agendar minha avaliação de Botox ou preenchimento.',
+      botox:  'Olá! Quero saber mais sobre o Botox e agendar minha avaliação.',
+      labial: 'Olá! Quero saber mais sobre o preenchimento labial e agendar minha avaliação.',
+      final:  'Olá! Vi a condição de 12x de R$69,90 e quero agendar minha avaliação de Botox ou preenchimento.'
+    };
+    var origem = 'header';
+    try {
+      var o = new URLSearchParams(location.search).get('origem');
+      if (o && Object.prototype.hasOwnProperty.call(MESSAGES, o)) origem = o;
+    } catch (e) {}
+    var WA_URL = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(MESSAGES[origem]);
+
+    var done = false;
+    function go() {
+      if (done) return;
+      done = true;
+      location.replace(WA_URL);
+    }
+
+    /* Meta Pixel */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;t.onload=function(){setTimeout(go,1000);};t.onerror=go;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1796661368118569');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead', { content_name: 'whatsapp-' + origem });
+
+    // Segurança: se o pixel for bloqueado ou demorar, redireciona mesmo assim
+    setTimeout(go, 3000);
+  })();
+</script>
+</head>
+<body>
+  <h1>Abrindo o WhatsApp...</h1>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1796661368118569&ev=Lead&noscript=1"><p><a href="https://wa.me/5519989077669">Toque aqui para abrir o WhatsApp</a></p></noscript>
+</body>
+</html>

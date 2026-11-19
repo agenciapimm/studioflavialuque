@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://studioflavialuque.com/sitemap.xml
+Sitemap: https://studioflavialuque.pimm.com.br/sitemap.xml
