@@ -46,8 +46,9 @@
     s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1796661368118569');
-    fbq('track', 'PageView');
-    fbq('track', 'Lead', { content_name: 'whatsapp-' + origem });
+    fbq('init', '1557166679109491'); // segundo pixel: só PageView
+    fbq('track', 'PageView'); // vai pros dois pixels
+    fbq('trackSingle', '1796661368118569', 'Lead', { content_name: 'whatsapp-' + origem }); // Lead só no pixel principal
 
     // Segurança: se o pixel for bloqueado ou demorar, redireciona mesmo assim
     setTimeout(go, 3000);
@@ -56,6 +57,6 @@
 </head>
 <body>
   <h1>Abrindo o WhatsApp...</h1>
-  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1796661368118569&ev=Lead&noscript=1"><p><a href="https://wa.me/5519989077669">Toque aqui para abrir o WhatsApp</a></p></noscript>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1796661368118569&ev=Lead&noscript=1"><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1557166679109491&ev=PageView&noscript=1"><p><a href="https://wa.me/5519989077669">Toque aqui para abrir o WhatsApp</a></p></noscript>
 </body>
 </html>
